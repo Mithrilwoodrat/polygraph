@@ -45,7 +45,7 @@ extern gboolean        sary_searcher_icase_search2            (SarySearcher *sea
                                                  SaryInt len);
 extern SaryText*       sary_searcher_get_text                 (SarySearcher *searcher);
 extern SaryMmap*       sary_searcher_get_array                (SarySearcher *searcher);
-extern SaryInt         sary_searcher_get_next_offset          (SarySearcher *searcher);
+/* extern SaryInt         sary_searcher_get_next_offset          (SarySearcher *searcher); */
 extern gchar*          sary_searcher_get_next_line            (SarySearcher *searcher);
 extern gchar*          sary_searcher_get_next_line2           (SarySearcher *searcher,
                                                  SaryInt *len);
@@ -66,7 +66,7 @@ extern gchar*          sary_searcher_get_next_tagged_region2  (SarySearcher *sea
                                                  SaryInt end_tag_len,
                                                  SaryInt *len);
 extern SaryText*       sary_searcher_get_next_occurrence      (SarySearcher *searcher);
-extern gchar*          sary_searcher_peek_next_position       (SarySearcher *searcher);
+/* extern gchar*          sary_searcher_peek_next_position       (SarySearcher *searcher); */
 extern SaryInt         sary_searcher_count_occurrences        (SarySearcher *searcher);
 extern void            sary_searcher_sort_occurrences         (SarySearcher *searcher);
 extern void            sary_searcher_enable_cache             (SarySearcher *searcher);

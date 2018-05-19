@@ -23,9 +23,10 @@ class Clet(worm_gen.WormGen):
         self.pname = pname
         self.fname = fname
 
-    def generate(self, count, test=True):
+    def generate(self, count, test=False):
         samples = []
         while len(samples) < count:
+            print count
             if test:
                 (fi,fo,fe) = os.popen3("clet -d -e")
 
@@ -36,13 +37,16 @@ class Clet(worm_gen.WormGen):
             else:
                 (fi,fo,fe) = os.popen3("clet -d")
 
+            print 'Running'
             s = fo.read()
+            print count
 
             if test:
                 if s.endswith('confirm\n'):
                     samples.append(s[:-8])
             else:
                 samples.append(s)
+            print len(samples)
         return samples
 
 

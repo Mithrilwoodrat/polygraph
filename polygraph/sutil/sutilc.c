@@ -386,7 +386,7 @@ st_create(PyObject* self, PyObject* args)
 {
 	PyObject *pylist = NULL, *pystring = NULL;
 	char *cstring = NULL;
-	int length;
+	long length;
 	tree_handle_t *handle;
 	LST_String *string;
 

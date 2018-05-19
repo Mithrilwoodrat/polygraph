@@ -58,7 +58,9 @@ def _get_next_pkt(tracer, save_data):
             pkt_info, pkt = tracer.next()
         except pcapy.PcapError:
             return None
-
+        if pkt_info is None:
+            print('pkt_info is None')
+            return None
         # extract basic capture info
         if pkt_info.getlen() != pkt_info.getcaplen():
             print >> sys.stderr, "Warning, only captured %d of %d bytes" % (

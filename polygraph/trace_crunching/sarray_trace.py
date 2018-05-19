@@ -27,8 +27,9 @@ class TraceSary(object):
 #        self.offsets_file = streamfile + '.sarray/offsets'
         self.sary_file = streamfile + '/data'
         self.offsets_file = streamfile + '/offsets'
-
-        self.sary = pysary.saryer_new(self.sary_file)
+        print 'loading data', self.sary_file
+        self.sary = pysary.sary_searcher_new(self.sary_file)
+        print self.sary
         if self.sary == 'NULL':
             import exceptions
             self.sary = None
@@ -41,7 +42,7 @@ class TraceSary(object):
 
     def __del__(self):
         if self.sary:
-            pysary.saryer_destroy(self.sary)
+            pysary.sary_searcher_destroy(self.sary)
             self.sary = None
         if self.mx:
 #            self.mx.close()
@@ -92,16 +93,16 @@ class TraceSary(object):
 
     def token_count(self, token):
 #        if not pysary.saryer_search2(self.sary, token, len(token)):
-        if not pysary.saryer_search2(self.sary, token):
+        if not pysary.sary_searcher_search2(self.sary, token, len(token)):
             return 0
-        return pysary.saryer_count_occurrences(self.sary)
+        return pysary.sary_searcher_count_occurrences(self.sary)
 
     def token_count_unique(self, token, estimate=False):
 #        if not pysary.saryer_search2(self.sary, token, len(token)):
-        if not pysary.saryer_search2(self.sary, token):
+        if not pysary.sary_searcher_search2(self.sary, token, len(token)):
             return 0
         pysary.saryer_sort_occurrences(self.sary)
-        count = pysary.saryer_count_occurrences(self.sary)
+        count = pysary.sary_searcher_count_occurrences(self.sary)
 
         nextone = 0
         uniquecount = 0

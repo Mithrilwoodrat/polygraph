@@ -38,7 +38,7 @@ setup(name="Polygraph",
                     libraries=['stree']),
           Extension('polygraph.util.pysary', \
                     sources=['polygraph/pysary/pysary_wrap.c'],\
-                    libraries=['sary', 'gthread', 'glib', 'pthread'],\
+                    libraries=['sary', 'gthread-2.0', 'glib-2.0', 'pthread'],\
                     include_dirs=dirs)
       ],
       scripts=['polygraph/bin/reconstruct_streams']
